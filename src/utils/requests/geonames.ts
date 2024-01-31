@@ -1,17 +1,10 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import Logger from '../logger';
 
-interface City {
+export interface CityDetails {
     name: string;
-    population: number;
-}
-
-interface GeoNamesParams {
-    q: string;
-    maxRows: number;
-    orderby: 'population';
-    style: 'FULL';
-    username: string;
+    fullName: string;
+    coordinates: string;
 }
 
 interface GeonamesAdminCodes1 {
@@ -38,62 +31,38 @@ interface GeoLocation {
     fcode: string;
 }
 
-const requestInstance: AxiosInstance = axios.create({
-    baseURL: "http://api.geonames.org",
-    params: {
-        username: process.env.NEXT_PUBLIC_GEONAMES_USERNAME
-    }
-});
+interface GeonamesResponse {
+    geonames: GeoLocation[];
+    totlaResultsCount: Number;
+}
 
-export const getLargestCities = async (params: Partial<Omit<GeoNamesParams, "username">>): Promise<City[]> => {
 
+export const getCitySuggestions = async (query: string): Promise<CityDetails[]> => {
     try {
-        const defaultParams = {
-            q: '',
-            maxRows: 15,
-            orderby: 'population',
+        const queryParams = new URLSearchParams({
+            q: query,
+            maxRows: "7",
+            orderby: 'relevance',
             style: 'FULL',
-        };
-
-        const response: AxiosResponse<any> = await requestInstance.get("/searchJSON", {
-            params: {
-                ...defaultParams,
-                ...params,
-            }
+            username: process.env.NEXT_PUBLIC_GEONAMES_USERNAME || "",
         });
 
-        if (response.status === 200) {
-            const cities: City[] = response.data.geonames.map((cityData: any) => ({
-                name: cityData.name,
-                population: cityData.population
-            }));
-            return cities;
-        }
+        const response = await fetch(`http://api.geonames.org/searchJSON?${queryParams.toString()}`, { cache: "no-store" });
 
-        throw new Error(`Error: ${response.status}`);
+        const data: GeonamesResponse = await response.json();
+
+
+        const cities = data.geonames.map(({ name, countryName = "Earth", lat, lng }) => ({
+            name,
+            fullName: `${name}, ${countryName}`,
+            coordinates: `${lat} ${lng}`
+        }));
+
+        return cities;
+
 
     } catch (error) {
-        throw new Error(`Error: ${error}`);
+        Logger.info("Error at getCitySuggestions", error);
+        return [];
     }
 }
-
-
-export const showCity = async (coordinates: GeolocationCoordinates): Promise<string | null> => {
-
-    const { longitude, latitude } = coordinates;
-    try {
-        const response: AxiosResponse<{ geonames: GeoLocation[] }> = await requestInstance.get("/findNearbyJSON", {
-            params: {
-                lat: latitude,
-                lng: longitude,
-            }
-        });
-
-        const city = response.data.geonames[0]?.adminName1;
-        return city || null;
-    } catch (error) {
-        Logger.error("Error:", error);
-        return null;
-    }
-}
-

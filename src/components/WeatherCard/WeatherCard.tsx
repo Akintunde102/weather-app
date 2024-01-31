@@ -1,8 +1,13 @@
 'use client'
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import styles from "../app/weather-card.module.scss";
-import Image from 'next/image';
+import styles from "./component.module.scss";
 import { ReactNode } from "react";
+import CardHeader from "../CardHeader/Cardheader";
+
+export enum BackgroundVariant {
+    transparentGrey = "rgba(45, 47, 56, 0.7)",
+    transparentBlack = "rgba(25, 25, 25, 0.7)",
+}
 
 interface WeatherCardProps {
     icon: StaticImport;
@@ -10,14 +15,16 @@ interface WeatherCardProps {
     dataItem: ReactNode;
     dataItemDetails?: ReactNode;
     footerItemDetails?: ReactNode;
+    backgroundVariant?: BackgroundVariant;
 }
 
-export default function WeatherCard({ icon, title, dataItem, dataItemDetails }: WeatherCardProps) {
+export default function WeatherCard({ icon, title, dataItem, dataItemDetails, footerItemDetails, backgroundVariant = BackgroundVariant.transparentGrey }: WeatherCardProps) {
     return (
-        <div className={styles.weatherCard}>
+        <div
+            className={styles.weatherCard}
+            style={{ background: backgroundVariant }}>
             <div className={styles.header}>
-                <Image src={icon} alt="temperature icon" />
-                <span>{title}</span>
+                <CardHeader icon={icon} title={title} />
             </div>
             <div className={styles.body}>
                 <div className={styles.dataItem}>
@@ -29,7 +36,7 @@ export default function WeatherCard({ icon, title, dataItem, dataItemDetails }: 
             </div>
 
             <div className={styles.footerItemDetails}>
-                {dataItemDetails}
+                {footerItemDetails}
             </div>
         </div>
     );

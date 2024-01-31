@@ -78,6 +78,25 @@ body {
   font-weight: 400;
 }
 
+
+textarea:focus {
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.centringContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
 /* 
 /* body {
   color: rgb(var(--foreground-rgb));
@@ -89,10 +108,7 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+
 
 @media (prefers-color-scheme: dark) {
   html {

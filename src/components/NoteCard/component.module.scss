@@ -1,0 +1,19 @@
+.noteContainer {
+    padding: 20px;
+    background: rgb(64, 64, 68);
+    margin: 12px 10px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .content {
+        flex: 3;
+    }
+
+    .footer {
+        margin-top: 30px;
+        flex: 1;
+        font-size: 12px;
+    }
+}

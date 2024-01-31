@@ -1,0 +1,47 @@
+.noteContainer {
+    padding: 20px;
+    background: rgba(85, 85, 87, 01);
+    margin: 12px 10px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+        flex: 3;
+    }
+
+    .removeCityButton img:hover {
+        background-color: #fff;
+        border-radius: 2px;
+        padding: 2px
+    }
+
+    .footer {
+        margin-top: 12px;
+        flex: 1;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .inlineContainer {
+        padding: 4px 0px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 2px;
+        align-items: center;
+
+        .info {
+            font-size: 28px;
+        }
+    }
+}
+
+.centringContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader {}
+}

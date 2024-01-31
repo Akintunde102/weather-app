@@ -1,0 +1,147 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(57, 57, 122);
+}
+
+.pageContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: 6vh 6vw;
+}
+
+.container {
+  padding: 3vh;
+  width: 100%;
+  background-color: rgba(41, 41, 43, 0.6);
+  border-radius: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.rightContainer {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 80vh;
+}
+
+.leftContainer {
+  flex: 1.5;
+  margin-right: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 80vh;
+
+  .fullContentBar {
+    flex: 1;
+    border-radius: 30px;
+    padding: 5px 32px;
+    z-index: 3;
+    background-color: rgba(158, 158, 164, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .favouriteCities {
+      flex: 1;
+      display: flex;
+      margin-bottom: 4%;
+      max-height: 40vh;
+    }
+
+
+    .searchContainer {
+      flex: 1;
+    }
+
+    .leftWeatherCards {
+      flex: 0 0 50%;
+      display: flex;
+      flex-direction: column;
+
+      .leftWeatherCardsRow {
+        flex: 1;
+        display: flex;
+        margin-bottom: 5%;
+        flex-wrap: wrap;
+      }
+
+      .leftWeatherCardsRow div {
+        margin-right: 5%;
+      }
+
+      .leftWeatherCardsRow div:last-child {
+        margin-right: 0;
+      }
+    }
+
+  }
+}
+
+.locationContainer {
+  padding: 4px 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.locationTag {
+  font-size: 14px;
+  margin-left: 5px;
+  padding: 0;
+}
+
+
+.noteContainer {
+  padding: 20px;
+  background: rgba(85, 85, 87, 01);
+  margin: 12px 10px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    flex: 3;
+  }
+
+  .removeCityButton img:hover {
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 2px
+  }
+
+  .footer {
+    margin-top: 30px;
+    flex: 1;
+    font-size: 12px;
+  }
+}
+
+.noteListContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.noteListContainer::-webkit-scrollbar-thumb {
+  background: rgba(158, 158, 164, 0.4);
+
+}
+
+.noteListContainer::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.centringContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loader {}
+}
