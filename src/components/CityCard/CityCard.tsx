@@ -12,6 +12,7 @@ import LoadingIcon from "../LoadingIcon/LoadingIcon";
 interface CityCardProps {
     city: City;
     deleteCity: (locationFullName: string) => void;
+    updateCityTemperature: (locationFullName: string, temperature: string) => void
 }
 
 

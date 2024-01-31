@@ -16,9 +16,7 @@ interface LeftDetailsProps {
 }
 
 export default function LeftDetails({ weatherDetails }: LeftDetailsProps) {
-
     const { weather, location } = weatherDetails;
-
 
     return (
         <div className={styles.leftContainer}>
@@ -51,14 +49,12 @@ export default function LeftDetails({ weatherDetails }: LeftDetailsProps) {
                             title="Feels like"
                             icon={Temperature}
                             dataItem={<span>{weather.feelsLike}<sup>&deg;</sup></span>}
-                        // footerItemDetails={<span>Humidity is making it feel warmer</span>}
                         />
                         <WeatherCard
                             title="Precipitation"
                             icon={WaterDrop}
                             dataItem={<span>{weather.precipitation}</span>}
                             dataItemDetails={<span>in last 24h</span>}
-                        // footerItemDetails={<span>{weather.precipitation}</span>}
                         />
                     </div>
                     <div className={styles.leftWeatherCardsRow}>

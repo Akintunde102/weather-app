@@ -79,7 +79,8 @@ body {
 }
 
 
-textarea:focus {
+textarea:focus,
+input:focus {
   outline: none;
 }
 

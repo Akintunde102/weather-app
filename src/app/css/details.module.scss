@@ -28,6 +28,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-height: 80vh;
 
   .rightWeatherCards {
     flex: 1;
@@ -36,30 +37,22 @@
     justify-content: space-between;
   }
 
-  .notesContainer {
-    flex: 3;
-    margin-top: 4%;
-
-    border-radius: 20px;
-    padding: 15px;
-    position: relative;
-    z-index: 3;
-    background-color: rgba(25, 25, 25, 0.7);
-    display: flex;
-    flex-direction: column;
-  }
-
   .addNotesContainer {
-    flex: 3;
+    flex: 2;
     margin-top: 4%;
     border-radius: 20px;
-    padding: 15px;
     position: relative;
-    z-index: 3;
     background-color: rgba(25, 25, 25, 0.7);
     display: flex;
     flex-direction: column;
   }
+
+  .notesContainer {
+    flex: 2;
+    display: flex;
+    max-height: 30vh;
+  }
+
 }
 
 .leftContainer {
@@ -68,6 +61,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-height: 80vh;
 
   .headerPill {
     border-radius: 50px;
@@ -99,23 +93,6 @@
       padding: 4px 10px;
       display: flex;
       align-items: center;
-    }
-
-    .buttonFav {
-      padding: 8px;
-      border-radius: 5px;
-      background-color: rgba(158, 158, 164, 0.4);
-      color: white;
-      border: #fff 0px solid;
-    }
-
-
-    .buttonUnFav {
-      padding: 8px;
-      border-radius: 5px;
-      background-color: rgba(245, 245, 245, 0.4);
-      color: #000;
-      border: #fff 0px solid;
     }
   }
 
@@ -180,32 +157,4 @@
     }
 
   }
-}
-
-
-.noteListContainer {
-  overflow-y: scroll;
-  max-height: 30vh;
-}
-
-.noteListContainer::-webkit-scrollbar {
-  width: 10px;
-}
-
-.noteListContainer::-webkit-scrollbar-thumb {
-  background: rgba(158, 158, 164, 0.4);
-
-}
-
-.noteListContainer::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.centringContainer {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .loader {}
 }

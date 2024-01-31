@@ -13,6 +13,7 @@ interface NoteStore {
     notes: Note[];
     addNote: (note: string, locationFullName: string) => void;
     deleteNote: (id: string) => void;
+    editNote: (id: string, newText: string) => void;
     getNotesByLocationFullName: (locationFullName: string) => Note[];
 }
 
@@ -36,6 +37,12 @@ const useNoteStore = create<NoteStore>()(
             deleteNote: (id) =>
                 set((state) => ({
                     notes: state.notes.filter((note) => note.id !== id),
+                })),
+            editNote: (id, newText) =>
+                set((state) => ({
+                    notes: state.notes.map((note) =>
+                        note.id === id ? { ...note, text: newText, date: new Date() } : note
+                    ),
                 })),
             getNotesByLocationFullName: (locationFullName) =>
                 get().notes.filter((note) => note.locationFullName === locationFullName),

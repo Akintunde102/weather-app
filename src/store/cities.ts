@@ -8,6 +8,7 @@ export interface City {
     fullName: string;
     coordinates: string;
     country: string;
+    lastTemperature: string;
 }
 
 export type AddCityArg = Omit<City, "id">;

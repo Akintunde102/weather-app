@@ -1,39 +1,15 @@
 'use client'
-import { useRouter } from "next/navigation";
 import styles from "../app/css/page.module.css";
-import { useEffect } from "react";
 import CityLight from "@/images/icons/city-lights.svg"
 import LargeCard from "@/components/LargeCard/LargeCard";
 import SearchCity from "@/components/SearchCity/SearchCity";
 import FavouriteCity from "@/components/FavoriteCity/FavoriteCity";
 import DefaultCity from "@/components/DefaultCity/DefaultCity";
+import useGeolocationRedirect from "@/hooks/UseGeolocationRedirect";
 
 export default function HomePage() {
-  const { push } = useRouter();
+  useGeolocationRedirect();
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.navigator) {
-      const locationIsSupported = navigator.geolocation;
-
-      if (locationIsSupported) {
-        navigator.permissions.query({ name: 'geolocation' }).then((result) => {
-          if (result.state === 'granted') {
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                const { latitude, longitude, } = position.coords;
-                const stringifiedCoords = `${latitude},${longitude}`
-                push("/details?location=" + stringifiedCoords);
-              },
-              (error) => {
-                throw error;
-              }
-            );
-            return;
-          }
-        });
-      }
-    }
-  }, [push]);
 
   return (
     <div className={styles.main}>

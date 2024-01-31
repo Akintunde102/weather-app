@@ -19,7 +19,7 @@ export default function DefaultCity() {
             });
             setInitialized(true);
         }
-    }, [cities, _initialized])
+    }, [cities, _initialized]);
 
 
     const listIsEmpty = (cities || []).length === 0

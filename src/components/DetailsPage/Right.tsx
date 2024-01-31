@@ -50,17 +50,21 @@ export default function RightDetails({ weatherDetails }: RightDetailsProps) {
                     backgroundVariant={BackgroundVariant.transparentBlack}
                 />
             </div>
-            <LargeCard
-                body={<AddNote setSubmissionFeedback={setSubmissionFeedback} submit={submitNote} />}
-                title="Add Note"
-                titleIcon={Notes}
-                leftTitle={submissionFeedback}
-            />
-            <LargeCard
-                body={<NotesComponent weatherDetails={weatherDetails} />}
-                title="List of Notes"
-                titleIcon={Notes}
-            />
+            <div className={styles.addNotesContainer}>
+                <LargeCard
+                    body={<AddNote setSubmissionFeedback={setSubmissionFeedback} submit={submitNote} />}
+                    title="Add Note"
+                    titleIcon={Notes}
+                    leftTitle={submissionFeedback}
+                />
+            </div>
+            <div className={styles.notesContainer}>
+                <LargeCard
+                    body={<NotesComponent weatherDetails={weatherDetails} />}
+                    title="List of Notes"
+                    titleIcon={Notes}
+                />
+            </div>
         </div>
     );
 }

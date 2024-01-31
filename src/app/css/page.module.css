@@ -42,7 +42,6 @@
     flex: 1;
     border-radius: 30px;
     padding: 5px 32px;
-    z-index: 3;
     background-color: rgba(158, 158, 164, 0.4);
     display: flex;
     flex-direction: column;
