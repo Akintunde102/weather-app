@@ -10,8 +10,7 @@ import Button from "../Button/Button";
 
 export default function DefaultCity() {
     const { deleteCity, cities, _initialized, addCity, setInitialized, updateCityLastTemperature } = useDefaultCityStore();
-    const _hasHydrated = useDefaultCityStore.persist.hasHydrated();
-
+    const _hasHydrated = (useDefaultCityStore as any)?.persist?.hasHydrated();
 
     useEffect(() => {
         if (!_initialized && _hasHydrated) {
@@ -20,8 +19,7 @@ export default function DefaultCity() {
             });
             setInitialized(true);
         }
-    }, [cities, _initialized]);
-
+    }, [cities, _initialized, _hasHydrated, addCity, setInitialized]);
 
     const listIsEmpty = (cities || []).length === 0
 

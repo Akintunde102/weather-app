@@ -8,7 +8,8 @@ import { sortCitiesByName } from "@/utils/sort-cities";
 export default function FavouriteCity() {
     const { deleteCity, cities, updateCityLastTemperature } = useFavouriteCityStore();
 
-    const _hasHydrated = useFavouriteCityStore.persist.hasHydrated();
+    const _hasHydrated = (useFavouriteCityStore as any)?.persist?.hasHydrated();
+
 
     const listIsEmpty = (cities || []).length === 0
 

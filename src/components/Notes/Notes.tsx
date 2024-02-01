@@ -20,7 +20,7 @@ export default function Notes({ weatherDetails }: NotesProps) {
     useEffect(() => {
         const notes = getNotesByLocationFullName(location.fullName);
         setNotesInView(notes);
-    }, [getNotesByLocationFullName, notes]);
+    }, [getNotesByLocationFullName, notes, location]);
 
 
     const listIsEmpty = (notesInView || []).length === 0

@@ -17,13 +17,14 @@ export default function FavCityButton({ weatherDetails, }: FavCityButtonProps) {
     const { isCityPresent, addCity, deleteCity, cities } = useFavouriteCityStore();
 
     const [favState, setFavState] = useState<boolean | undefined>();
-    const { location } = weatherDetails;
+    const { location, weather } = weatherDetails;
+
 
 
     useEffect(() => {
         const cityHasBeenFavourited = isCityPresent(location.fullName);
         setFavState(cityHasBeenFavourited);
-    }, [isCityPresent, cities]);
+    }, [isCityPresent, cities, location]);
 
     if (favState === undefined) {
         return <LoadingIcon width="36px" height="36px" />;
@@ -45,7 +46,8 @@ export default function FavCityButton({ weatherDetails, }: FavCityButtonProps) {
                 name: location.exact,
                 fullName: location.fullName,
                 coordinates: location.coordinates,
-                country: location.country
+                country: location.country,
+                lastTemperature: String(weather.temperature)
             })
         }}
         className={styles.button}

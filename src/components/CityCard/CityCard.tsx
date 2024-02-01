@@ -17,7 +17,6 @@ interface CityCardProps {
 
 export default function CityCard({ city, deleteCity, updateCityLastTemperature }: CityCardProps) {
 
-    console.log(city.id);
     const { coordinates, name, fullName, country, lastTemperature, id } = city;
 
 
@@ -29,10 +28,10 @@ export default function CityCard({ city, deleteCity, updateCityLastTemperature }
 
     useEffect(() => {
         fetchCityTemperature(coordinates).then(temperature => {
-            console.log({ temperature });
+            console.log({ temperature, fullName });
             updateCityLastTemperature(id, String(temperature));
         });
-    }, [])
+    }, [coordinates, id, updateCityLastTemperature])
 
 
 

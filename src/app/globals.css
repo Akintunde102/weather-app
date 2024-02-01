@@ -101,9 +101,15 @@ a {
 
 
 @media screen and (max-width: 1111px) {
-
   body {
     background-color: rgba(41, 41, 43, 0.6);
+  }
+}
+
+@media screen and (max-width: 826px) {
+  body {
+    background-color: rgba(28, 28, 28, 0.6);
+    margin: 0 0 20px;
   }
 }
 

@@ -87,8 +87,7 @@ const generateCityStore = ({ storeName, onRehydrateStorage }: GenerateCityStoreA
             }
         },
         {
-            name: storeName,
-            onRehydrateStorage
+            name: storeName
         },
     )
 ));

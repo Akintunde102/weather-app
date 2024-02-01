@@ -141,12 +141,15 @@
   .main {
     display: block;
     flex-direction: unset;
+    background-color: unset;
   }
 
   .container {
     display: block;
     background: unset;
     width: 100%;
+    background-color: unset;
+
 
     padding: 0;
 

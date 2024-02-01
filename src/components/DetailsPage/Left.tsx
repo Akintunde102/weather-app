@@ -3,7 +3,6 @@ import styles from "@/app/css/details.module.scss";
 import Image from 'next/image';
 import Location from "@/images/icons/location.svg"
 import Temperature from "@/images/icons/temperature.svg";
-import WaterDrop from "@/images/icons/water-drop.svg";
 import WeatherCard from "@/components/WeatherCard/WeatherCard";
 import { WeatherDataForDisplay } from "@/utils/map-weather-data-for-display";
 import FavCityButton from "@/components/FavCityButton/FavCityButton";

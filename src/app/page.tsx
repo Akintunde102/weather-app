@@ -10,7 +10,6 @@ import useGeolocationRedirect from "@/hooks/UseGeolocationRedirect";
 export default function HomePage() {
   useGeolocationRedirect();
 
-
   return (
     <div className={styles.main}>
       <div className={styles.pageContainer}>

@@ -4,10 +4,11 @@ import useMetaStore from "@/store/meta";
 
 const useGeolocationRedirect = () => {
     const { push } = useRouter();
-    const { alreadyRedirectedToCityPage, updateCityPageRedirection } = useMetaStore()
+    const { alreadyRedirectedToCityPage, updateCityPageRedirection } = useMetaStore();
+    const _hasHydrated = (useMetaStore as any)?.persist?.hasHydrated();
 
     useEffect(() => {
-        if (typeof window !== 'undefined' && window.navigator && !alreadyRedirectedToCityPage) {
+        if (typeof window !== 'undefined' && window.navigator && _hasHydrated && !alreadyRedirectedToCityPage) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const { latitude, longitude } = position.coords;
@@ -21,7 +22,7 @@ const useGeolocationRedirect = () => {
             );
             return;
         }
-    }, [push, alreadyRedirectedToCityPage]);
+    }, []);
 };
 
 export default useGeolocationRedirect;

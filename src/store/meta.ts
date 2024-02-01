@@ -6,7 +6,6 @@ interface MetaStore {
     updateCityPageRedirection: (bool: boolean) => void;
 }
 
-
 const useMetaStore = create<MetaStore>()(
     persist(
         (set, get) => ({
