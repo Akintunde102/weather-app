@@ -4,9 +4,6 @@ import Image from 'next/image';
 import Location from "@/images/icons/location.svg"
 import Temperature from "@/images/icons/temperature.svg";
 import WaterDrop from "@/images/icons/water-drop.svg";
-import Eye from "@/images/icons/eye.svg";
-
-import Humidity from "@/images/icons/humidity.svg";
 import WeatherCard from "@/components/WeatherCard/WeatherCard";
 import { WeatherDataForDisplay } from "@/utils/map-weather-data-for-display";
 import FavCityButton from "@/components/FavCityButton/FavCityButton";
@@ -44,19 +41,13 @@ export default function LeftDetails({ weatherDetails }: LeftDetailsProps) {
                     </div>
                 </div>
                 <div className={styles.leftWeatherCardsContainer}>
-                    <div className={styles.leftWeatherCards}>
-                        <WeatherCard
-                            title="Feels like"
-                            icon={Temperature}
-                            dataItem={<span>{weather.feelsLike}<sup>&deg;</sup></span>}
-                        />
-                        <WeatherCard
-                            title="Precipitation"
-                            icon={WaterDrop}
-                            dataItem={<span>{weather.precipitation}</span>}
-                            dataItemDetails={<span>in last 24h</span>}
-                        />
-                    </div>
+                    <WeatherCard
+                        title="Feels like"
+                        icon={Temperature}
+                        dataItem={<span>{weather.feelsLike}<sup>&deg;</sup></span>}
+                        dataItemDetails={<span>Precipitation is currently at {`${weather.precipitation}`}</span>}
+                        footerItemDetails={<span>Pressure: {`${weather.pressure}`} atm</span>}
+                    />
                 </div>
             </div>
         </div>

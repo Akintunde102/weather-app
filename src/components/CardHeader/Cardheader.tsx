@@ -2,15 +2,16 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import styles from "./component.module.scss";
 import Image from 'next/image';
+import { ReactNode } from "react";
 
 interface CardHeaderProps {
     icon: StaticImport;
     title: string;
     withDivider?: boolean;
-    leftTitle?: string;
+    rightItem?: ReactNode;
 }
 
-export default function CardHeader({ icon, title, withDivider = false, leftTitle }: CardHeaderProps) {
+export default function CardHeader({ icon, title, withDivider = false, rightItem }: CardHeaderProps) {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
@@ -19,7 +20,7 @@ export default function CardHeader({ icon, title, withDivider = false, leftTitle
                     <span>{title}</span>
                 </div>
                 {
-                    leftTitle ? <div className={styles.right}>{leftTitle}</div> : <></>
+                    rightItem ? <div className={styles.right}>{rightItem}</div> : <></>
                 }
             </div>
 

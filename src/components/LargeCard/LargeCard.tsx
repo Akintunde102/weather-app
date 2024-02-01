@@ -7,17 +7,17 @@ import { ReactNode } from "react";
 interface LargeCardProps {
     body: ReactNode;
     title: string;
-    leftTitle?: string;
+    rightItem?: ReactNode;
     titleIcon: StaticImport;
     noMarginWrap?: boolean;
 }
 
-export default function LargeCard({ body, title, leftTitle, titleIcon, noMarginWrap = false }: LargeCardProps) {
+export default function LargeCard({ body, title, rightItem, titleIcon, noMarginWrap = false }: LargeCardProps) {
     return (
         <div className={styles.container} style={noMarginWrap ? {} : {
             marginTop: "4%"
         }}>
-            <CardHeader icon={titleIcon} title={title} withDivider leftTitle={leftTitle} />
+            <CardHeader icon={titleIcon} title={title} withDivider rightItem={rightItem} />
             <div className={styles.body}>
                 {body}
             </div>

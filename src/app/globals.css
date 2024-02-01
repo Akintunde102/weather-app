@@ -99,12 +99,14 @@ a {
 }
 
 
-@media screen and (max-width: 826px) {
+
+@media screen and (max-width: 1111px) {
 
   body {
-    background-color: rgb(57, 57, 122);
+    background-color: rgba(41, 41, 43, 0.6);
   }
 }
+
 
 /* 
 /* body {

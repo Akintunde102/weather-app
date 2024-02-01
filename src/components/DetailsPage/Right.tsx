@@ -3,8 +3,8 @@ import styles from "@/app/css/details.module.scss";
 import Rays from "@/images/icons/ultraviolet.svg";
 import Wind from "@/images/icons/wind-turbines.svg"
 import Notes from "@/images/icons/notes.svg"
+import NotesComponent from "@/components/Notes/Notes"
 import Eye from "@/images/icons/eye.svg";
-
 import Humidity from "@/images/icons/humidity.svg";
 import { useEffect, useState } from "react";
 import AddNote from "../AddNote/AddNote";
@@ -12,6 +12,7 @@ import useNoteStore, { Note } from "@/store/notes";
 import LargeCard from "@/components/LargeCard/LargeCard";
 import WeatherCard, { BackgroundVariant } from "@/components/WeatherCard/WeatherCard";
 import { WeatherDataForDisplay } from "@/utils/map-weather-data-for-display";
+import Button from "../Button/Button";
 
 interface RightDetailsProps {
     weatherDetails: WeatherDataForDisplay;
@@ -21,17 +22,12 @@ export default function RightDetails({ weatherDetails }: RightDetailsProps) {
 
     const { weather, location } = weatherDetails;
     const [submissionFeedback, setSubmissionFeedback] = useState<string>("");
-    const { notes, addNote, getNotesByLocationFullName } = useNoteStore();
-
-    const [notesInView, setNotesInView] = useState<Note[]>();
-
-    useEffect(() => {
-        const notes = getNotesByLocationFullName(location.fullName);
-        setNotesInView(notes);
-    }, [getNotesByLocationFullName, notes]);
+    const { addNote, } = useNoteStore();
+    const [showNoteList, setShowNoteList] = useState(false);
 
     const submitNote = (note: string) => {
         addNote(note, location.fullName);
+        setShowNoteList(true);
     }
 
     return (
@@ -65,22 +61,27 @@ export default function RightDetails({ weatherDetails }: RightDetailsProps) {
                 />
 
             </div>
-            <div className={styles.addNotesContainer}>
-                <LargeCard
-                    body={<AddNote setSubmissionFeedback={setSubmissionFeedback} submit={submitNote} />}
-                    title="Add Note"
-                    titleIcon={Notes}
-                    leftTitle={submissionFeedback}
-                    noMarginWrap={true}
-                />
-            </div>
-            {/* <div className={styles.notesContainer}>
-                <LargeCard
-                    body={<NotesComponent weatherDetails={weatherDetails} />}
-                    title="List of Notes"
-                    titleIcon={Notes}
-                />
-            </div> */}
-        </div>
+            <div className={styles.notesContainer}>
+                {
+                    showNoteList ? (
+                        <LargeCard
+                            body={
+                                <NotesComponent weatherDetails={weatherDetails} />
+                            }
+                            title="List of Notes"
+                            titleIcon={Notes}
+                            rightItem={<Button onClick={() => setShowNoteList(false)} title="Add Note" />}
+                        />
+                    ) : (
+                        <LargeCard
+                            body={<AddNote setSubmissionFeedback={setSubmissionFeedback} submit={submitNote} />}
+                            title="Add Note"
+                            titleIcon={Notes}
+                            noMarginWrap={true}
+                            rightItem={submissionFeedback || <Button onClick={() => setShowNoteList(true)} title="Show List of Notes" />}
+                        />
+                    )
+                }</div>
+        </div >
     );
 }

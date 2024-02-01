@@ -20,7 +20,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  min-height: 90vh;
+  max-height: 90vh;
 }
 
 .leftContainer {
@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 80vh;
+  height: 80vh;
 
   .headerPill {
     border-radius: 50px;
@@ -105,26 +105,14 @@
     .leftWeatherCardsContainer {
       flex: 1;
       display: flex;
+      justify-content: center;
+      align-items: center;
 
-      .leftWeatherCards {
+      div {
         flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-
-        div {
-          min-width: 30vw;
-        }
-
-        div:last-child {
-          margin-right: 0;
-        }
+        margin-bottom: 2vh;
       }
-
     }
-
-
   }
 }
 
@@ -133,7 +121,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 80vh;
+  height: 80vh;
+
 
   .rightWeatherCards {
     flex: 4;
@@ -146,17 +135,11 @@
     }
   }
 
-  .addNotesContainer {
-    flex: 2;
-    border-radius: 20px;
-    display: flex;
-  }
-
   .notesContainer {
-    flex: 2;
+    flex: 3;
     display: flex;
+    overflow: hidden;
   }
-
 }
 
 
@@ -180,18 +163,19 @@
   .container {
     padding: 3vh;
     width: 100%;
-    background-color: rgba(11, 11, 145, 0.6);
-    border-radius: 30px;
+    border-radius: 0;
     display: block;
     flex-wrap: unset;
     flex-direction: unset;
     justify-content: unset;
+    background-color: unset;
   }
 
   .leftContainer {
     margin: 0;
     display: block;
-    max-height: unset;
+    height: unset;
+
 
     .headerPill {
       margin-bottom: 2vh;
@@ -207,47 +191,27 @@
       flex-direction: unset;
       justify-content: space-between;
 
-      .leftWeatherCards {
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        .leftWeatherCardsRow {
-          display: block;
-          margin-bottom: 0;
-          justify-content: center;
-          align-items: center;
-          margin-left: 0%;
-
-
-          div {
-            margin-bottom: 2%;
-            width: 60vw;
-            margin-left: 0%;
-          }
-
-          div:last-child {}
-        }
+      .leftWeatherCardsContainer {
+        margin-top: 2vh;
       }
+
     }
   }
 
   .rightContainer {
     display: flex;
-    max-height: unset;
-    margin-top: 4vh;
+    margin-top: 2vh;
+    height: unset;
+    background: unset;
+
 
     .rightWeatherCards {
+      flex: 1;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
 
       div {
-        margin-bottom: 2%;
-        margin-left: 0%;
-        min-width: 60vw;
-
+        margin-bottom: 2vh;
       }
     }
 

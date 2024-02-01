@@ -6,6 +6,7 @@ import CityCard from "../CityCard/CityCard";
 import { INITIAL_DEFAULT_CITIES } from "@/store/init-data/default-cities";
 import { useEffect } from "react";
 import { sortCitiesByName } from "@/utils/sort-cities";
+import Button from "../Button/Button";
 
 export default function DefaultCity() {
     const { deleteCity, cities, _initialized, addCity, setInitialized, updateCityLastTemperature } = useDefaultCityStore();
@@ -37,18 +38,9 @@ export default function DefaultCity() {
             }}><p>
                     All Default Cities Removed
                 </p>
-                <button style={{
-                    padding: "10px",
-                    margin: "30px",
-                    borderRadius: "5px",
-                    border: "none"
-                }}
-
-                    onClick={() => {
-                        setInitialized(false);
-                    }}
-
-                > Reload Default Cities</button>
+                <Button onClick={() => {
+                    setInitialized(false);
+                }} title="Reload Default Cities" />
             </div>
         </div>;
     }

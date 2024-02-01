@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from 'next/image';
 import { City } from "@/store/cities";
 import { fetchWeatherData } from "@/utils/requests/weatherstack";
-import { useEffect, useState, } from "react";
+import { useEffect } from "react";
 import LoadingIcon from "../LoadingIcon/LoadingIcon";
 
 interface CityCardProps {
