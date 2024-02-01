@@ -21,8 +21,9 @@ interface CityStore {
     setHasHydrated: (state: any) => void;
     setInitialized: (state: any) => void;
     addCity: (city: AddCityArg) => void;
-    deleteCity: (id: string) => void;
-    isCityPresent: (id: string) => boolean;
+    updateCityLastTemperature: (id: string, newTemperature: string) => void;
+    deleteCity: (fullName: string) => void;
+    isCityPresent: (fullName: string) => boolean;
 }
 
 
@@ -73,6 +74,13 @@ const generateCityStore = ({ storeName, onRehydrateStorage }: GenerateCityStoreA
                 deleteCity: (fullName: string) => {
                     set((state) => ({
                         cities: state.cities.filter((city) => city.fullName !== fullName),
+                    }));
+                },
+                updateCityLastTemperature: (id, newTemperature) => {
+                    return set((state) => ({
+                        cities: state.cities.map((city) =>
+                            city.id === id ? { ...city, lastTemperature: newTemperature } : city
+                        ),
                     }));
                 },
                 isCityPresent: isCityPresent(set, get),

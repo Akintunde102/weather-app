@@ -1,3 +1,4 @@
+import { generateRandomNumber } from "../generate-random-number";
 import Logger from "../logger";
 import { mapWeatherDataForDisplay } from "../map-weather-data-for-display";
 
@@ -5,7 +6,10 @@ export const fetchWeatherData = async (cityNameOrCoordinates: string) => {
     try {
         // const response = await fetch(`http://api.weatherstack.com/current?access_key=${process.env.NEXT_PUBLIC_WEATHER_STACK_ACCESS_KEY}&query=${cityNameOrCoordinates}`, { cache: 'no-store' });
         // const data = await response.json();
-        const data = {
+
+        const promiseDelay = generateRandomNumber(1000, 4000);
+
+        const mockData = {
             "request": {
                 "type": "LatLon",
                 "query": "Lat -23.55 and Lon -46.64",
@@ -25,7 +29,7 @@ export const fetchWeatherData = async (cityNameOrCoordinates: string) => {
             },
             "current": {
                 "observation_time": "08:28 AM",
-                "temperature": 20,
+                "temperature": generateRandomNumber(-10, 40),
                 "weather_code": 113,
                 "weather_icons": [
                     "https:\/\/cdn.worldweatheronline.com\/images\/wsymbols01_png_64\/wsymbol_0008_clear_sky_night.png"
@@ -45,8 +49,15 @@ export const fetchWeatherData = async (cityNameOrCoordinates: string) => {
                 "visibility": 10,
                 "is_day": "no"
             }
-        };
-        return mapWeatherDataForDisplay(data as any);
+        }
+
+        const data = await (() => new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(mockData);
+            }, promiseDelay);
+        }))();
+
+        return mapWeatherDataForDisplay(data);
     } catch (error) {
         Logger.error('Error fetching weather data:', error);
         throw error;

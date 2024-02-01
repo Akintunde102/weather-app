@@ -9,50 +9,18 @@
   display: flex;
   width: 100%;
   height: 100vh;
-  padding: 6vh 6vw;
+  padding: 3vh 6vw;
 }
 
 .container {
-  padding: 3vh;
+  padding: 3vw;
   width: 100%;
   background-color: rgba(41, 41, 43, 0.6);
   border-radius: 30px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
-}
-
-.rightContainer {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  max-height: 80vh;
-
-  .rightWeatherCards {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .addNotesContainer {
-    flex: 2;
-    margin-top: 4%;
-    border-radius: 20px;
-    position: relative;
-    background-color: rgba(25, 25, 25, 0.7);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .notesContainer {
-    flex: 2;
-    display: flex;
-    max-height: 30vh;
-  }
-
+  min-height: 90vh;
 }
 
 .leftContainer {
@@ -61,41 +29,40 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-height: 80vh;
+  min-height: 80vh;
 
   .headerPill {
     border-radius: 50px;
     background-color: rgba(64, 64, 68, 1);
     padding: 8px;
     flex: 1;
-  }
 
-  .headerPillBody {
-    padding: 4px 10px;
-    display: flex;
-    justify-content: space-between;
-
-    .locationContainer {
-      padding: 4px 10px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      grid-gap: 10px;
-      align-items: center;
-    }
-
-    .locationTag {
-      font-size: 14px;
-      margin-left: 5px;
-      padding: 0;
-    }
-
-    .rightTag {
+    .headerPillBody {
       padding: 4px 10px;
       display: flex;
-      align-items: center;
+      justify-content: space-between;
+
+      .locationContainer {
+        padding: 4px 10px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 10px;
+        align-items: center;
+      }
+
+      .locationTag {
+        font-size: 14px;
+        margin-left: 5px;
+        padding: 0;
+      }
+
+      .rightTag {
+        padding: 4px 10px;
+        display: flex;
+        align-items: center;
+      }
     }
   }
-
 
   .fullContentBar {
     flex: 99;
@@ -106,12 +73,13 @@
     background-color: rgba(158, 158, 164, 0.4);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     .centerData {
-      flex: 0 0 40%;
-      padding: 6vh 45px;
-      margin-top: 5%;
+      flex: 1;
+      padding: 1vh 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       .tempData {
         text-align: center;
@@ -131,27 +99,197 @@
           font-weight: 300;
           line-height: 18px;
         }
-
       }
     }
 
-    .leftWeatherCards {
-      flex: 0 0 50%;
+    .leftWeatherCardsContainer {
+      flex: 1;
       display: flex;
-      flex-direction: column;
 
-      .leftWeatherCardsRow {
+      .leftWeatherCards {
         flex: 1;
         display: flex;
-        margin-bottom: 5%;
-        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
 
         div {
-          margin-right: 5%;
+          min-width: 30vw;
         }
 
         div:last-child {
           margin-right: 0;
+        }
+      }
+
+    }
+
+
+  }
+}
+
+.rightContainer {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 80vh;
+
+  .rightWeatherCards {
+    flex: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    div {
+      margin-bottom: 1vh;
+    }
+  }
+
+  .addNotesContainer {
+    flex: 2;
+    border-radius: 20px;
+    display: flex;
+  }
+
+  .notesContainer {
+    flex: 2;
+    display: flex;
+  }
+
+}
+
+
+@media screen and (max-width: 1111px) {
+  .main {
+    display: block;
+    flex-direction: unset;
+    background-image: unset;
+    background-color: unset;
+  }
+
+  .pageContainer {
+    display: block;
+    background: unset;
+    width: 100%;
+    height: unset;
+    padding: 0;
+  }
+
+
+  .container {
+    padding: 3vh;
+    width: 100%;
+    background-color: rgba(11, 11, 145, 0.6);
+    border-radius: 30px;
+    display: block;
+    flex-wrap: unset;
+    flex-direction: unset;
+    justify-content: unset;
+  }
+
+  .leftContainer {
+    margin: 0;
+    display: block;
+    max-height: unset;
+
+    .headerPill {
+      margin-bottom: 2vh;
+    }
+
+    .fullContentBar {
+      margin-top: 0;
+      border-radius: 30px;
+      padding: 32px;
+      z-index: 3;
+      background-color: rgba(158, 158, 164, 0.4);
+      display: block;
+      flex-direction: unset;
+      justify-content: space-between;
+
+      .leftWeatherCards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .leftWeatherCardsRow {
+          display: block;
+          margin-bottom: 0;
+          justify-content: center;
+          align-items: center;
+          margin-left: 0%;
+
+
+          div {
+            margin-bottom: 2%;
+            width: 60vw;
+            margin-left: 0%;
+          }
+
+          div:last-child {}
+        }
+      }
+    }
+  }
+
+  .rightContainer {
+    display: flex;
+    max-height: unset;
+    margin-top: 4vh;
+
+    .rightWeatherCards {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      div {
+        margin-bottom: 2%;
+        margin-left: 0%;
+        min-width: 60vw;
+
+      }
+    }
+
+    .addNotesContainer {
+      margin-top: 4%;
+      padding: 20px;
+      border-radius: 20px;
+      position: relative;
+      background-color: rgba(25, 25, 25, 0.7);
+      display: flex;
+      flex-direction: column;
+      min-height: 40vh;
+    }
+
+    .notesContainer {
+      flex: 2;
+      display: flex;
+      max-height: unset;
+      min-height: 40vh;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1520px) {
+  .leftContainer {
+
+    .fullContentBar {
+
+      .leftWeatherCards {
+        display: flex;
+        flex-direction: column;
+        max-height: 40vh;
+
+        .leftWeatherCardsRow {
+          margin: 20px;
+          display: flex;
+          flex-direction: row;
+
+          div {
+            margin-bottom: 1vh;
+          }
         }
       }
     }

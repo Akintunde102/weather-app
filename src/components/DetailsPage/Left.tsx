@@ -43,8 +43,8 @@ export default function LeftDetails({ weatherDetails }: LeftDetailsProps) {
                         </div>
                     </div>
                 </div>
-                <div className={styles.leftWeatherCards}>
-                    <div className={styles.leftWeatherCardsRow}>
+                <div className={styles.leftWeatherCardsContainer}>
+                    <div className={styles.leftWeatherCards}>
                         <WeatherCard
                             title="Feels like"
                             icon={Temperature}
@@ -56,10 +56,6 @@ export default function LeftDetails({ weatherDetails }: LeftDetailsProps) {
                             dataItem={<span>{weather.precipitation}</span>}
                             dataItemDetails={<span>in last 24h</span>}
                         />
-                    </div>
-                    <div className={styles.leftWeatherCardsRow}>
-                        <WeatherCard title="Visibility" icon={Eye} dataItem={<span>{weather.visibility} mi</span>} />
-                        <WeatherCard title="Humidity" icon={Humidity} dataItem={<span>{weather.humidity}%</span>} />
                     </div>
                 </div>
             </div>

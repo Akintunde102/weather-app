@@ -6,21 +6,21 @@ import Link from "next/link";
 import Image from 'next/image';
 import { City } from "@/store/cities";
 import { fetchWeatherData } from "@/utils/requests/weatherstack";
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
 import LoadingIcon from "../LoadingIcon/LoadingIcon";
 
 interface CityCardProps {
     city: City;
     deleteCity: (locationFullName: string) => void;
-    updateCityTemperature: (locationFullName: string, temperature: string) => void
+    updateCityLastTemperature: (locationFullName: string, temperature: string) => void
 }
 
+export default function CityCard({ city, deleteCity, updateCityLastTemperature }: CityCardProps) {
 
-export default function CityCard({ city, deleteCity }: CityCardProps) {
+    console.log(city.id);
+    const { coordinates, name, fullName, country, lastTemperature, id } = city;
 
-    const { coordinates, name, fullName, country } = city;
 
-    const [temperature, setTemperature] = useState<number>();
 
     const fetchCityTemperature = async (cityNameOrCoordinates: string) => {
         const weatherDetails = await fetchWeatherData(cityNameOrCoordinates);
@@ -29,8 +29,9 @@ export default function CityCard({ city, deleteCity }: CityCardProps) {
 
     useEffect(() => {
         fetchCityTemperature(coordinates).then(temperature => {
-            setTemperature(temperature)
-        })
+            console.log({ temperature });
+            updateCityLastTemperature(id, String(temperature));
+        });
     }, [])
 
 
@@ -55,11 +56,10 @@ export default function CityCard({ city, deleteCity }: CityCardProps) {
                 <div className={styles.footer}>
                     <div className={styles.inlineContainer}>
                         <Image src={BigTemperature} alt="temperature icon" />
-                        {temperature === undefined ?
+                        {lastTemperature === undefined ?
                             <LoadingIcon width="36px" height="36px" />
-                            : <span className={styles.info}>{temperature}<sup>&deg;</sup></span>
+                            : <span className={styles.info}>{lastTemperature}<sup>&deg;</sup></span>
                         }
-
                     </div>
                 </div>
             </div>

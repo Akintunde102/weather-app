@@ -3,7 +3,9 @@ import styles from "@/app/css/details.module.scss";
 import Rays from "@/images/icons/ultraviolet.svg";
 import Wind from "@/images/icons/wind-turbines.svg"
 import Notes from "@/images/icons/notes.svg"
-import NotesComponent from "@/components/Notes/Notes";
+import Eye from "@/images/icons/eye.svg";
+
+import Humidity from "@/images/icons/humidity.svg";
 import { useEffect, useState } from "react";
 import AddNote from "../AddNote/AddNote";
 import useNoteStore, { Note } from "@/store/notes";
@@ -49,6 +51,19 @@ export default function RightDetails({ weatherDetails }: RightDetailsProps) {
                     dataItem={<span>{weather.uvIndex}</span>}
                     backgroundVariant={BackgroundVariant.transparentBlack}
                 />
+                <WeatherCard
+                    title="Visibility"
+                    icon={Eye}
+                    dataItem={<span>{weather.visibility} mi</span>}
+                    backgroundVariant={BackgroundVariant.transparentBlack}
+                />
+                <WeatherCard
+                    title="Humidity"
+                    icon={Humidity}
+                    dataItem={<span>{weather.humidity}%</span>}
+                    backgroundVariant={BackgroundVariant.transparentBlack}
+                />
+
             </div>
             <div className={styles.addNotesContainer}>
                 <LargeCard
@@ -56,15 +71,16 @@ export default function RightDetails({ weatherDetails }: RightDetailsProps) {
                     title="Add Note"
                     titleIcon={Notes}
                     leftTitle={submissionFeedback}
+                    noMarginWrap={true}
                 />
             </div>
-            <div className={styles.notesContainer}>
+            {/* <div className={styles.notesContainer}>
                 <LargeCard
                     body={<NotesComponent weatherDetails={weatherDetails} />}
                     title="List of Notes"
                     titleIcon={Notes}
                 />
-            </div>
+            </div> */}
         </div>
     );
 }

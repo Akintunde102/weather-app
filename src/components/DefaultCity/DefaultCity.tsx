@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { sortCitiesByName } from "@/utils/sort-cities";
 
 export default function DefaultCity() {
-    const { deleteCity, cities, _initialized, addCity, setInitialized } = useDefaultCityStore();
+    const { deleteCity, cities, _initialized, addCity, setInitialized, updateCityLastTemperature } = useDefaultCityStore();
     const _hasHydrated = useDefaultCityStore.persist.hasHydrated();
 
 
@@ -53,5 +53,5 @@ export default function DefaultCity() {
         </div>;
     }
 
-    return sortCitiesByName(cities).map((city, index) => <CityCard city={city} deleteCity={deleteCity} key={index} />);
+    return sortCitiesByName(cities).map((city, index) => <CityCard updateCityLastTemperature={updateCityLastTemperature} city={city} deleteCity={deleteCity} key={index} />);
 }

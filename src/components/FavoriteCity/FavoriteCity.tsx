@@ -6,7 +6,7 @@ import CityCard from "../CityCard/CityCard";
 import { sortCitiesByName } from "@/utils/sort-cities";
 
 export default function FavouriteCity() {
-    const { deleteCity, cities } = useFavouriteCityStore();
+    const { deleteCity, cities, updateCityLastTemperature } = useFavouriteCityStore();
 
     const _hasHydrated = useFavouriteCityStore.persist.hasHydrated();
 
@@ -21,5 +21,5 @@ export default function FavouriteCity() {
         return <div className={styles.centringContainer}>No Favourite Cities</div>;
     }
 
-    return sortCitiesByName(cities).map((city, index) => <CityCard city={city} deleteCity={deleteCity} key={index} />);
+    return sortCitiesByName(cities).map((city, index) => <CityCard updateCityLastTemperature={updateCityLastTemperature} city={city} deleteCity={deleteCity} key={index} />);
 }

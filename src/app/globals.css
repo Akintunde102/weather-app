@@ -98,6 +98,14 @@ a {
   background-color: red;
 }
 
+
+@media screen and (max-width: 826px) {
+
+  body {
+    background-color: rgb(57, 57, 122);
+  }
+}
+
 /* 
 /* body {
   color: rgb(var(--foreground-rgb));
