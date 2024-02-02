@@ -5,7 +5,7 @@ import LargeCard from "@/components/LargeCard/LargeCard";
 import SearchCity from "@/components/SearchCity/SearchCity";
 import FavouriteCity from "@/components/FavoriteCity/FavoriteCity";
 import DefaultCity from "@/components/DefaultCity/DefaultCity";
-import useGeolocationRedirect from "@/hooks/UseGeolocationRedirect";
+import useGeolocationRedirect from "@/hooks/useGeolocationRedirect";
 
 export default function HomePage() {
   useGeolocationRedirect();
