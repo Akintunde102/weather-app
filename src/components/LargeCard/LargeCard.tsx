@@ -1,6 +1,6 @@
 'use client'
 import styles from "./component.module.scss";
-import CardHeader from "@/components/CardHeader/Cardheader";
+import CardHeader from "@/components/CardHeader/CardHeader";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { ReactNode } from "react";
 

@@ -14,8 +14,6 @@ interface NoteCardProps {
     deleteNote: (id: string) => void;
 }
 
-
-
 export default function NoteCard({ note, editNote, deleteNote }: NoteCardProps) {
     const { date, text, id } = note;
 
@@ -23,30 +21,28 @@ export default function NoteCard({ note, editNote, deleteNote }: NoteCardProps) 
 
     const submitNoteHandler = (id: string, newText: string) => {
         editNote(id, newText);
-
         setEditMode(false);
     }
 
-    if (editMode) {
-        return <EditNote note={note} submitNote={submitNoteHandler} />
-    }
-
     return (
-        <div className={styles.noteContainer}>
-            <div className={styles.content}>
-                {text}
-            </div>
-            <div className={styles.footer}>
-                <div className={styles.left}>
-                    {formatDistanceToNow(date, { addSuffix: true })}
+        <div className={styles.noteContainer} data-testid="note-card">{
+            editMode ? <EditNote note={note} submitNote={submitNoteHandler} /> : <>
+                <div className={styles.content}>
+                    {text}
                 </div>
-                <div className={styles.right}>
-                    <Image src={TinyPencil} alt="Tiny Edit Icon" onClick={() => { setEditMode(true) }} />
-                    <Image src={TinyDumpster} alt="Tiny Delete Icon" onClick={() => {
-                        deleteNote(id);
-                    }} />
+                <div className={styles.footer}>
+                    <div className={styles.left}>
+                        {formatDistanceToNow(date, { addSuffix: true })}
+                    </div>
+                    <div className={styles.right}>
+                        <Image src={TinyPencil} alt="Tiny Edit Icon" onClick={() => { setEditMode(true) }} />
+                        <Image src={TinyDumpster} alt="Tiny Delete Icon" onClick={() => {
+                            deleteNote(id);
+                        }} />
+                    </div>
                 </div>
-            </div>
+            </>
+        }
         </div>
     )
 }

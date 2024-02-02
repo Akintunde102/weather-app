@@ -23,11 +23,9 @@ export default function CardHeader({ icon, title, withDivider = false, rightItem
                     rightItem ? <div className={styles.right}>{rightItem}</div> : <></>
                 }
             </div>
-
             {
                 withDivider ? (<div className={styles.divider} />) : (<></>)
             }
-
         </div>
     );
 }

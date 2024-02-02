@@ -28,7 +28,7 @@ export function EditNote({ note, submitNote }: EditNoteProps) {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid="edit-note">
             <input value={text} className={styles.input} autoFocus onChange={onEditHandler} />
             <div className={styles.submitContainer} >
                 <Image src={Tick} alt="submit note" onClick={submitNoteHandler} className={styles.submitButton} />

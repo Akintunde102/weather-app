@@ -5,10 +5,8 @@ import { debounce } from "lodash";
 import Link from "next/link";
 import { ChangeEvent, useState } from "react";
 
-
-
 export default function SearchCity() {
-    const [note, setNote] = useState<string>();
+    const [note, setNote] = useState<string>("");
     const [suggestions, setSuggestions] = useState<CityDetails[]>([]);
 
     const debouncedSearch = debounce(async (value: string) => {

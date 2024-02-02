@@ -8,7 +8,7 @@ interface LoadingIconProps {
 
 const LoadingIcon: React.FC<LoadingIconProps> = ({ width = "60px", height = "60px" }) => {
   return (
-    <div>
+    <div data-testid="loading-icon">
       <div
         className={styles.loader}
         style={{

@@ -10,7 +10,7 @@ interface AddNoteProps {
 }
 
 export default function AddNote({ setSubmissionFeedback, submit }: AddNoteProps) {
-    const [note, setNote] = useState<string>();
+    const [note, setNote] = useState<string>("");
 
     const { startEnd, start } = createUIIndication(setSubmissionFeedback)
 

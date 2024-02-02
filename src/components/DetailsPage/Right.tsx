@@ -6,9 +6,9 @@ import Notes from "@/images/icons/notes.svg"
 import NotesComponent from "@/components/Notes/Notes"
 import Eye from "@/images/icons/eye.svg";
 import Humidity from "@/images/icons/humidity.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddNote from "../AddNote/AddNote";
-import useNoteStore, { Note } from "@/store/notes";
+import useNoteStore from "@/store/notes";
 import LargeCard from "@/components/LargeCard/LargeCard";
 import WeatherCard, { BackgroundVariant } from "@/components/WeatherCard/WeatherCard";
 import { WeatherDataForDisplay } from "@/utils/map-weather-data-for-display";
@@ -22,7 +22,7 @@ export default function RightDetails({ weatherDetails }: RightDetailsProps) {
 
     const { weather, location } = weatherDetails;
     const [submissionFeedback, setSubmissionFeedback] = useState<string>("");
-    const { addNote, } = useNoteStore();
+    const { addNote } = useNoteStore();
     const [showNoteList, setShowNoteList] = useState(false);
 
     const submitNote = (note: string) => {

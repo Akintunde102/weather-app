@@ -19,8 +19,6 @@ export default function CityCard({ city, deleteCity, updateCityLastTemperature }
 
     const { coordinates, name, fullName, country, lastTemperature, id } = city;
 
-
-
     const fetchCityTemperature = async (cityNameOrCoordinates: string) => {
         const weatherDetails = await fetchWeatherData(cityNameOrCoordinates);
         return weatherDetails.weather.temperature;
@@ -28,15 +26,12 @@ export default function CityCard({ city, deleteCity, updateCityLastTemperature }
 
     useEffect(() => {
         fetchCityTemperature(coordinates).then(temperature => {
-            console.log({ temperature, fullName });
             updateCityLastTemperature(id, String(temperature));
         });
     }, [coordinates, id, updateCityLastTemperature])
 
-
-
     return (
-        <Link href={`/details?location=${coordinates}`} target="_blank">
+        <Link href={`/details?location=${coordinates}`} target="_blank" data-testid="city-card">
             <div className={styles.noteContainer}>
                 <div style={{
                     display: "flex",

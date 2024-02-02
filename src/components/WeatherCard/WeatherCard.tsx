@@ -2,7 +2,7 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import styles from "./component.module.scss";
 import { ReactNode } from "react";
-import CardHeader from "../CardHeader/Cardheader";
+import CardHeader from "../CardHeader/CardHeader";
 
 export enum BackgroundVariant {
     transparentGrey = "rgba(45, 47, 56, 0.7)",

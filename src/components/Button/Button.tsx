@@ -11,4 +11,4 @@ export default function Button({ onClick, title }: ButtonProps) {
         className={styles.button}
         onClick={onClick}
     > {title}</button>
-}
+} 

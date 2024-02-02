@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeftDetails component matches snapshot 1`] = `
+<div>
+  <div
+    class="leftContainer"
+  >
+    <div
+      class="headerPill"
+    >
+      <div
+        class="headerPillBody"
+      >
+        <div
+          class="locationContainer"
+        >
+          <img
+            alt="location icon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <span
+            class="locationTag"
+          >
+            Queens, New York, USA
+          </span>
+        </div>
+        <span
+          class="rightTag"
+          title="Make Favourite"
+        >
+          <div
+            data-testid="fav-city-button"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      class="fullContentBar"
+    >
+      <div
+        class="centerData"
+      >
+        <div
+          class="tempData"
+        >
+          <div
+            class="degreeTemp"
+          >
+            25
+            <sup>
+              °
+            </sup>
+          </div>
+          <div
+            class="wetness"
+          >
+            Sunny
+          </div>
+          <div
+            class="tempStatement"
+          />
+        </div>
+      </div>
+      <div
+        class="leftWeatherCardsContainer"
+      >
+        <div
+          class="weatherCard"
+          style="background: rgba(45, 47, 56, 0.7);"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="container"
+            >
+              <div
+                class="content"
+              >
+                <div
+                  class="left"
+                >
+                  <img
+                    alt="icon"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <span>
+                    Feels like
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="body"
+          >
+            <div
+              class="dataItem"
+            >
+              <span>
+                24
+                <sup>
+                  °
+                </sup>
+              </span>
+            </div>
+            <div
+              class="dataItemDetails"
+            >
+              <span>
+                Precipitation is currently at 
+                0
+              </span>
+            </div>
+          </div>
+          <div
+            class="footerItemDetails"
+          >
+            <span>
+              Pressure: 
+              1015
+               atm
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

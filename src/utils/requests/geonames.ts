@@ -59,8 +59,6 @@ export const getCitySuggestions = async (query: string): Promise<CityDetails[]> 
         }));
 
         return cities;
-
-
     } catch (error) {
         Logger.info("Error at getCitySuggestions", error);
         return [];
