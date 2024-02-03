@@ -39,7 +39,7 @@ describe('CardHeader component', () => {
         render(
             <CardHeader icon={mockIcon} title="Test Title" withDivider={false} />
         );
-        const dividerElement = screen.getByTestId('divider');
+        const dividerElement = screen.queryByTestId('divider');
         expect(dividerElement).not.toBeInTheDocument();
     });
 });

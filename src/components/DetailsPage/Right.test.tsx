@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import RightDetails from './Right';
-import { MOCK_WEATHER_DETAILS } from '@/test/__mocks__/weather-details';
+import { MOCK_WEATHER_DATA_FOR_DISPLAY } from '@/test/__mocks__/weather-details';
 
 jest.mock('@/store/notes', () => ({
     __esModule: true,
@@ -14,14 +14,14 @@ jest.mock('@/store/notes', () => ({
 
 describe('RightDetails component', () => {
     test('renders add note section by default', () => {
-        render(<RightDetails weatherDetails={MOCK_WEATHER_DETAILS} />);
+        render(<RightDetails weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />);
         expect(screen.getByText('Add Note')).toBeInTheDocument();
     });
 
     test('renders list of notes section after adding a note', () => {
 
 
-        render(<RightDetails weatherDetails={MOCK_WEATHER_DETAILS} />);
+        render(<RightDetails weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />);
 
         const input = screen.getByPlaceholderText('Type.....');
         fireEvent.change(input, { target: { value: 'Test note' } });
@@ -36,7 +36,7 @@ describe('RightDetails component', () => {
 
     test('matches snapshot', () => {
         render(
-            <RightDetails weatherDetails={MOCK_WEATHER_DETAILS} />
+            <RightDetails weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />
         );
         expect(screen.getByTestId("right-details")).toMatchSnapshot();
     });

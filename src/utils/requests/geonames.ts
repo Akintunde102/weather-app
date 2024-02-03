@@ -1,4 +1,3 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import Logger from '../logger';
 
 export interface CityDetails {

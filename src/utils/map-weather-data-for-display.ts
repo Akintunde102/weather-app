@@ -75,6 +75,7 @@ export interface WeatherStackApiResponse {
     current: WeatherStackCurrentWeather;
 }
 
+
 export const mapWeatherDataForDisplay = (weatherData: WeatherStackApiResponse): WeatherDataForDisplay => {
 
     const { current, location } = weatherData;

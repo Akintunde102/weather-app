@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import LeftDetails from './Left';
-import { MOCK_WEATHER_DETAILS } from '@/test/__mocks__/weather-details';
+import { MOCK_WEATHER_DATA_FOR_DISPLAY } from '@/test/__mocks__/weather-details';
 
 jest.mock('@/components/FavCityButton/FavCityButton',
     () => function FavCityMock() {
@@ -14,7 +14,7 @@ describe('LeftDetails component', () => {
     test('renders weather details correctly', () => {
 
         render(
-            <LeftDetails weatherDetails={MOCK_WEATHER_DETAILS} />
+            <LeftDetails weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />
         );
 
         expect(screen.getByText('Queens, New York, USA')).toBeInTheDocument();
@@ -28,7 +28,7 @@ describe('LeftDetails component', () => {
 
     test('matches snapshot', () => {
         render(
-            <LeftDetails weatherDetails={MOCK_WEATHER_DETAILS} />
+            <LeftDetails weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />
         );
         expect(screen.getByTestId("left-details")).toMatchSnapshot();
     });

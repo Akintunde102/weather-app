@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import FavCityButton from './FavCityButton';
 import { useFavouriteCityStore } from '@/store/cities';
-import { MOCK_WEATHER_DETAILS } from '@/test/__mocks__/weather-details';
+import { MOCK_WEATHER_DATA_FOR_DISPLAY } from '@/test/__mocks__/weather-details';
 
 jest.mock('@/store/cities', () => ({
     useFavouriteCityStore: jest.fn(),
@@ -18,7 +18,7 @@ describe('FavCityButton component', () => {
             cities: [],
         });
 
-        render(<FavCityButton weatherDetails={MOCK_WEATHER_DETAILS} />);
+        render(<FavCityButton weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />);
 
         const { getByTestId } = screen;
 
@@ -33,7 +33,7 @@ describe('FavCityButton component', () => {
             cities: [],
         });
 
-        render(<FavCityButton weatherDetails={MOCK_WEATHER_DETAILS} />);
+        render(<FavCityButton weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />);
 
         const { getByAltText } = screen;
         expect(getByAltText('favorited star icon')).toBeInTheDocument();
@@ -47,7 +47,7 @@ describe('FavCityButton component', () => {
             cities: [],
         });
 
-        render(<FavCityButton weatherDetails={MOCK_WEATHER_DETAILS} />);
+        render(<FavCityButton weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />);
         const { getByAltText } = screen;
         expect(getByAltText('star icon')).toBeInTheDocument();
     });
@@ -61,7 +61,7 @@ describe('FavCityButton component', () => {
             cities: [],
         });
 
-        render(<FavCityButton weatherDetails={MOCK_WEATHER_DETAILS} />);
+        render(<FavCityButton weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />);
 
         const { getByAltText } = screen;
         fireEvent.click(getByAltText('star icon'));
@@ -78,7 +78,7 @@ describe('FavCityButton component', () => {
             cities: [],
         });
 
-        render(<FavCityButton weatherDetails={MOCK_WEATHER_DETAILS} />);
+        render(<FavCityButton weatherDetails={MOCK_WEATHER_DATA_FOR_DISPLAY} />);
 
         const { getByAltText } = screen;
         fireEvent.click(getByAltText('favorited star icon'));

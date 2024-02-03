@@ -1,6 +1,4 @@
 import Logger from "../logger";
-import { mapCityInfoForDisplay } from "../map-city-info-for-display";
-
 
 interface CityInfoCoordinates {
     lon: number;
@@ -35,6 +33,16 @@ export interface CityInfo {
 export interface OpenDataSoftResponse {
     results: CityInfo[];
     total_count: number;
+}
+
+
+export const mapCityInfoForDisplay = (cityInfo: CityInfo) => {
+    return {
+        name: cityInfo.name,
+        coordinates: `${cityInfo.latitude} ${cityInfo.longitude}`,
+        population: cityInfo.population,
+        country: cityInfo.country
+    }
 }
 
 
