@@ -1,5 +1,5 @@
 'use client'
-import styles from "../app/css/page.module.css";
+import styles from "../app/css/page.module.scss";
 import CityLight from "@/images/icons/city-lights.svg"
 import LargeCard from "@/components/LargeCard/LargeCard";
 import SearchCity from "@/components/SearchCity/SearchCity";

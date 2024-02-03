@@ -30,10 +30,8 @@ export default function DefaultCity() {
 
     if (listIsEmpty) {
         return <div className={styles.centringContainer}>
-            <div style={{
-                textAlign: "center",
-                fontSize: "18px"
-            }}><p>
+            <div className={styles.emptyListContainer}>
+                <p className={styles.title}>
                     All Default Cities Removed
                 </p>
                 <Button onClick={() => {

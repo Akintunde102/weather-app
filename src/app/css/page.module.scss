@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  background-color: rgb(57, 57, 122);
+  background-image: url('../../images/salty-beach.jpg');
 }
 
 .pageContainer {
@@ -52,6 +52,7 @@
       display: flex;
       margin-bottom: 4%;
       max-height: 40vh;
+      overflow: hidden;
     }
 
 
