@@ -2,8 +2,6 @@
 import styles from "../css/details.module.scss";
 import LeftDetails from "@/components/DetailsPage/Left";
 import RightDetails from "@/components/DetailsPage/Right";
-import { generateRandomNumber } from "@/utils/generate-random-number";
-import { mapWeatherDataForDisplay } from "@/utils/map-weather-data-for-display";
 import { fetchWeatherData } from "@/utils/requests/weatherstack";
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from "react";
@@ -35,7 +33,7 @@ async function DetailsPage() {
     );
 }
 
-export default async function SuspensedDetailsPage() {
+export default function SuspensedDetailsPage() {
     return (
         <Suspense>
             <DetailsPage />

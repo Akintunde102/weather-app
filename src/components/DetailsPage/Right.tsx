@@ -31,7 +31,7 @@ export default function RightDetails({ weatherDetails }: RightDetailsProps) {
     }
 
     return (
-        <div className={styles.rightContainer}>
+        <div className={styles.rightContainer} data-testid="right-details">
             <div className={styles.rightWeatherCards}>
                 <WeatherCard
                     title="Wind"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import RightDetails from './Right';
 import { MOCK_WEATHER_DETAILS } from '@/test/__mocks__/weather-details';
 
@@ -14,32 +14,30 @@ jest.mock('@/store/notes', () => ({
 
 describe('RightDetails component', () => {
     test('renders add note section by default', () => {
-        const { getByText } = render(<RightDetails weatherDetails={MOCK_WEATHER_DETAILS} />);
-        expect(getByText('Add Note')).toBeInTheDocument();
+        render(<RightDetails weatherDetails={MOCK_WEATHER_DETAILS} />);
+        expect(screen.getByText('Add Note')).toBeInTheDocument();
     });
 
     test('renders list of notes section after adding a note', () => {
 
 
-        const { getByText, queryByText, getByPlaceholderText } = render(<RightDetails weatherDetails={MOCK_WEATHER_DETAILS} />);
+        render(<RightDetails weatherDetails={MOCK_WEATHER_DETAILS} />);
 
-        const input = getByPlaceholderText('Type.....');
+        const input = screen.getByPlaceholderText('Type.....');
         fireEvent.change(input, { target: { value: 'Test note' } });
 
-        fireEvent.click(getByText('Add Note'));
+        fireEvent.click(screen.getByText('Add Note'));
 
-        fireEvent.click(getByText('Add'));
+        fireEvent.click(screen.getByText('Add'));
 
-        expect(getByText('List of Notes')).toBeInTheDocument();
-        expect(queryByText('Add Note')).toBeInTheDocument();
+        expect(screen.getByText('List of Notes')).toBeInTheDocument();
+        expect(screen.queryByText('Add Note')).toBeInTheDocument();
     });
 
     test('matches snapshot', () => {
-
-        const { container } = render(
+        render(
             <RightDetails weatherDetails={MOCK_WEATHER_DETAILS} />
         );
-
-        expect(container).toMatchSnapshot();
+        expect(screen.getByTestId("right-details")).toMatchSnapshot();
     });
 });

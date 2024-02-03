@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 import DefaultCity from './DefaultCity';
 import { useDefaultCityStore } from '@/store/cities';
 
@@ -18,8 +18,8 @@ describe('DefaultCity component', () => {
             updateCityLastTemperature: jest.fn(),
         });
 
-        const { getByTestId } = render(<DefaultCity />);
-        const loadingIcon = getByTestId('loading-icon');
+        render(<DefaultCity />);
+        const loadingIcon = screen.getByTestId('loading-icon');
         expect(loadingIcon).toBeInTheDocument();
 
         await waitFor(() => {

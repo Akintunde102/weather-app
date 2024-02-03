@@ -21,6 +21,7 @@ interface WeatherCardProps {
 export default function WeatherCard({ icon, title, dataItem, dataItemDetails, footerItemDetails, backgroundVariant = BackgroundVariant.transparentGrey }: WeatherCardProps) {
     return (
         <div
+            data-testid="weather-card"
             className={styles.weatherCard}
             style={{ background: backgroundVariant }}>
             <div className={styles.header}>

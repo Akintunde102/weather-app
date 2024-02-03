@@ -15,7 +15,7 @@ export default function LeftDetails({ weatherDetails }: LeftDetailsProps) {
     const { weather, location } = weatherDetails;
 
     return (
-        <div className={styles.leftContainer}>
+        <div className={styles.leftContainer} data-testid="left-details">
             <div className={styles.headerPill}>
                 <div className={styles.headerPillBody}>
                     <div className={styles.locationContainer}>

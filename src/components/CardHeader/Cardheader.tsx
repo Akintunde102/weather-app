@@ -24,7 +24,7 @@ export default function CardHeader({ icon, title, withDivider = false, rightItem
                 }
             </div>
             {
-                withDivider ? (<div className={styles.divider} />) : (<></>)
+                withDivider ? (<div className={styles.divider} data-testid="divider" />) : (<></>)
             }
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import SearchCity from './SearchCity';
 import { getCitySuggestions } from '@/utils/requests/geonames';
 import '@testing-library/jest-dom'
@@ -19,8 +19,8 @@ describe('SearchCity component', () => {
     });
 
     test('searches for city suggestions on input change', async () => {
-        const { getByPlaceholderText } = render(<SearchCity />);
-        const input = getByPlaceholderText('Search City');
+        render(<SearchCity />);
+        const input = screen.getByPlaceholderText('Search City');
         fireEvent.change(input, { target: { value: 'New York' } });
 
         await waitFor(() => {
@@ -36,7 +36,8 @@ describe('SearchCity component', () => {
         ];
         (getCitySuggestions as any).mockResolvedValueOnce(mockSuggestions);
 
-        const { getByPlaceholderText, getByText } = render(<SearchCity />);
+        render(<SearchCity />);
+        const { getByPlaceholderText, getByText } = screen;
         const input = getByPlaceholderText('Search City');
         fireEvent.change(input, { target: { value: 'New York' } });
 

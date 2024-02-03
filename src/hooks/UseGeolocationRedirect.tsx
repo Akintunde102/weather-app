@@ -22,7 +22,7 @@ const useGeolocationRedirect = () => {
             );
             return;
         }
-    }, []);
+    }, [_hasHydrated, alreadyRedirectedToCityPage, push, updateCityPageRedirection]);
 };
 
 export default useGeolocationRedirect;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import MockIcon from "@/images/icons/big-temperature.svg";
 import LargeCard from './LargeCard';
 
@@ -15,7 +15,7 @@ describe('LargeCard component', () => {
         const rightItem = <button>Test Button</button>;
         const noMarginWrap = true;
 
-        const { getByText, getByTestId } = render(
+        render(
             <LargeCard
                 title={title}
                 body={body}
@@ -24,7 +24,8 @@ describe('LargeCard component', () => {
                 noMarginWrap={noMarginWrap}
             />
         );
-        expect(getByText('Test Body')).toBeInTheDocument();
-        expect(getByTestId('mocked-card-header')).toBeInTheDocument();
+
+        expect(screen.getByText('Test Body')).toBeInTheDocument();
+        expect(screen.getByTestId('mocked-card-header')).toBeInTheDocument();
     });
 });

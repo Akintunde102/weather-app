@@ -1,11 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import MockIcon from "@/images/icons/big-temperature.svg";
 import WeatherCard, { BackgroundVariant } from './WeatherCard';
 
 describe('WeatherCard component', () => {
     it('renders title, dataItem, dataItemDetails, and footerItemDetails', () => {
-        const { getByText } = render(
+        render(
             <WeatherCard
                 icon={MockIcon}
                 title="Test Title"
@@ -15,14 +15,14 @@ describe('WeatherCard component', () => {
             />
         );
 
-        expect(getByText('Test Title')).toBeInTheDocument();
-        expect(getByText('Data Item')).toBeInTheDocument();
-        expect(getByText('Data Item Details')).toBeInTheDocument();
-        expect(getByText('Footer Item Details')).toBeInTheDocument();
+        expect(screen.getByText('Test Title')).toBeInTheDocument();
+        expect(screen.getByText('Data Item')).toBeInTheDocument();
+        expect(screen.getByText('Data Item Details')).toBeInTheDocument();
+        expect(screen.getByText('Footer Item Details')).toBeInTheDocument();
     });
 
     it('applies background variant correctly', () => {
-        const { container } = render(
+        render(
             <WeatherCard
                 icon={MockIcon}
                 title="Test Title"
@@ -31,11 +31,11 @@ describe('WeatherCard component', () => {
             />
         );
 
-        expect(container.firstChild).toHaveStyle('background: rgba(25, 25, 25, 0.7)');
+        expect(screen.getByTestId("weather-card")).toHaveStyle('background: rgba(25, 25, 25, 0.7)');
     });
 
     it('renders CardHeader component with correct props', () => {
-        const { getByAltText, getByText } = render(
+        render(
             <WeatherCard
                 icon={MockIcon}
                 title="Test Title"
@@ -43,6 +43,6 @@ describe('WeatherCard component', () => {
             />
         );
 
-        expect(getByText('Test Title')).toBeInTheDocument();
+        expect(screen.getByText('Test Title')).toBeInTheDocument();
     });
 });

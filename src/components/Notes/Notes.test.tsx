@@ -24,6 +24,9 @@ describe('Notes component', () => {
 
         await waitFor(() => {
             expect(useNoteStore).toHaveBeenCalled();
+        });
+
+        await waitFor(() => {
             expect(useNoteStore().getNotesByLocationFullName).toHaveBeenCalledWith('Test Location');
         });
     });

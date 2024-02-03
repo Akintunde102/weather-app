@@ -1,243 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RightDetails component matches snapshot 1`] = `
-<div>
+<div
+  class="rightContainer"
+  data-testid="right-details"
+>
   <div
-    class="rightContainer"
+    class="rightWeatherCards"
   >
     <div
-      class="rightWeatherCards"
+      class="weatherCard"
+      data-testid="weather-card"
+      style="background: rgba(25, 25, 25, 0.7);"
     >
       <div
-        class="weatherCard"
-        style="background: rgba(25, 25, 25, 0.7);"
-      >
-        <div
-          class="header"
-        >
-          <div
-            class="container"
-          >
-            <div
-              class="content"
-            >
-              <div
-                class="left"
-              >
-                <img
-                  alt="icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <span>
-                  Wind
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="body"
-        >
-          <div
-            class="dataItem"
-          >
-            <span>
-              0
-              <sup>
-                °
-              </sup>
-            </span>
-          </div>
-          <div
-            class="dataItemDetails"
-          >
-            <span>
-              with a speed of 
-              10
-               m/h
-            </span>
-          </div>
-        </div>
-        <div
-          class="footerItemDetails"
-        >
-          <span>
-            Direction: 
-            N
-          </span>
-        </div>
-      </div>
-      <div
-        class="weatherCard"
-        style="background: rgba(25, 25, 25, 0.7);"
-      >
-        <div
-          class="header"
-        >
-          <div
-            class="container"
-          >
-            <div
-              class="content"
-            >
-              <div
-                class="left"
-              >
-                <img
-                  alt="icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <span>
-                  UV
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="body"
-        >
-          <div
-            class="dataItem"
-          >
-            <span>
-              0
-            </span>
-          </div>
-          <div
-            class="dataItemDetails"
-          />
-        </div>
-        <div
-          class="footerItemDetails"
-        />
-      </div>
-      <div
-        class="weatherCard"
-        style="background: rgba(25, 25, 25, 0.7);"
-      >
-        <div
-          class="header"
-        >
-          <div
-            class="container"
-          >
-            <div
-              class="content"
-            >
-              <div
-                class="left"
-              >
-                <img
-                  alt="icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <span>
-                  Visibility
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="body"
-        >
-          <div
-            class="dataItem"
-          >
-            <span>
-              10
-               mi
-            </span>
-          </div>
-          <div
-            class="dataItemDetails"
-          />
-        </div>
-        <div
-          class="footerItemDetails"
-        />
-      </div>
-      <div
-        class="weatherCard"
-        style="background: rgba(25, 25, 25, 0.7);"
-      >
-        <div
-          class="header"
-        >
-          <div
-            class="container"
-          >
-            <div
-              class="content"
-            >
-              <div
-                class="left"
-              >
-                <img
-                  alt="icon"
-                  data-nimg="1"
-                  decoding="async"
-                  height="40"
-                  loading="lazy"
-                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                  style="color: transparent;"
-                  width="40"
-                />
-                <span>
-                  Humidity
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="body"
-        >
-          <div
-            class="dataItem"
-          >
-            <span>
-              50
-              %
-            </span>
-          </div>
-          <div
-            class="dataItemDetails"
-          />
-        </div>
-        <div
-          class="footerItemDetails"
-        />
-      </div>
-    </div>
-    <div
-      class="notesContainer"
-    >
-      <div
-        class="container"
+        class="header"
       >
         <div
           class="container"
@@ -260,43 +37,270 @@ exports[`RightDetails component matches snapshot 1`] = `
                 width="40"
               />
               <span>
-                Add Note
+                Wind
               </span>
             </div>
-            <div
-              class="right"
-            >
-              <button
-                class="button"
-              >
-                 
-                Show List of Notes
-              </button>
-            </div>
           </div>
-          <div
-            class="divider"
-          />
+        </div>
+      </div>
+      <div
+        class="body"
+      >
+        <div
+          class="dataItem"
+        >
+          <span>
+            0
+            <sup>
+              °
+            </sup>
+          </span>
         </div>
         <div
-          class="body"
+          class="dataItemDetails"
         >
-          <form
-            class="addNoteFormContainer"
+          <span>
+            with a speed of 
+            10
+             m/h
+          </span>
+        </div>
+      </div>
+      <div
+        class="footerItemDetails"
+      >
+        <span>
+          Direction: 
+          N
+        </span>
+      </div>
+    </div>
+    <div
+      class="weatherCard"
+      data-testid="weather-card"
+      style="background: rgba(25, 25, 25, 0.7);"
+    >
+      <div
+        class="header"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="content"
           >
-            <textarea
-              class="textArea"
-              placeholder="Type....."
-              required=""
+            <div
+              class="left"
+            >
+              <img
+                alt="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span>
+                UV
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="body"
+      >
+        <div
+          class="dataItem"
+        >
+          <span>
+            0
+          </span>
+        </div>
+        <div
+          class="dataItemDetails"
+        />
+      </div>
+      <div
+        class="footerItemDetails"
+      />
+    </div>
+    <div
+      class="weatherCard"
+      data-testid="weather-card"
+      style="background: rgba(25, 25, 25, 0.7);"
+    >
+      <div
+        class="header"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="content"
+          >
+            <div
+              class="left"
+            >
+              <img
+                alt="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span>
+                Visibility
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="body"
+      >
+        <div
+          class="dataItem"
+        >
+          <span>
+            10
+             mi
+          </span>
+        </div>
+        <div
+          class="dataItemDetails"
+        />
+      </div>
+      <div
+        class="footerItemDetails"
+      />
+    </div>
+    <div
+      class="weatherCard"
+      data-testid="weather-card"
+      style="background: rgba(25, 25, 25, 0.7);"
+    >
+      <div
+        class="header"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="content"
+          >
+            <div
+              class="left"
+            >
+              <img
+                alt="icon"
+                data-nimg="1"
+                decoding="async"
+                height="40"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                style="color: transparent;"
+                width="40"
+              />
+              <span>
+                Humidity
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="body"
+      >
+        <div
+          class="dataItem"
+        >
+          <span>
+            50
+            %
+          </span>
+        </div>
+        <div
+          class="dataItemDetails"
+        />
+      </div>
+      <div
+        class="footerItemDetails"
+      />
+    </div>
+  </div>
+  <div
+    class="notesContainer"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="content"
+        >
+          <div
+            class="left"
+          >
+            <img
+              alt="icon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
             />
+            <span>
+              Add Note
+            </span>
+          </div>
+          <div
+            class="right"
+          >
             <button
               class="button"
-              type="button"
             >
-              Add
+               
+              Show List of Notes
             </button>
-          </form>
+          </div>
         </div>
+        <div
+          class="divider"
+          data-testid="divider"
+        />
+      </div>
+      <div
+        class="body"
+      >
+        <form
+          class="addNoteFormContainer"
+        >
+          <textarea
+            class="textArea"
+            placeholder="Type....."
+            required=""
+          />
+          <button
+            class="button"
+            type="button"
+          >
+            Add
+          </button>
+        </form>
       </div>
     </div>
   </div>

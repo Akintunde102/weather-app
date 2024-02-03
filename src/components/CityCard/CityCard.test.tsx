@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import CityCard from './CityCard';
 import * as weatherstack from '@/utils/requests/weatherstack';
 import '@testing-library/jest-dom'
@@ -23,7 +23,7 @@ describe('CityCard component', () => {
         const mockDeleteCity = jest.fn();
         const mockUpdateCityLastTemperature = jest.fn();
 
-        const { getByText, getByAltText } = render(
+        render(
             <CityCard
                 city={mockCity}
                 deleteCity={mockDeleteCity}
@@ -31,12 +31,12 @@ describe('CityCard component', () => {
             />
         );
 
-        expect(getByText('New York, USA')).toBeInTheDocument();
-        expect(getByText('20')).toBeInTheDocument();
-        expect(getByAltText('cancel-icon')).toBeInTheDocument();
-        expect(getByAltText('temperature icon')).toBeInTheDocument();
+        expect(screen.getByText('New York, USA')).toBeInTheDocument();
+        expect(screen.getByText('20')).toBeInTheDocument();
+        expect(screen.getByAltText('cancel-icon')).toBeInTheDocument();
+        expect(screen.getByAltText('temperature icon')).toBeInTheDocument();
 
-        fireEvent.click(getByAltText('cancel-icon'));
+        fireEvent.click(screen.getByAltText('cancel-icon'));
         await waitFor(() => {
             expect(mockDeleteCity).toHaveBeenCalledWith('New York, USA');
         });

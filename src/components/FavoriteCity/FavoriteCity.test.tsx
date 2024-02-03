@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import FavoriteCity from './FavoriteCity';
 import { useFavouriteCityStore } from '@/store/cities';
 
@@ -17,7 +17,7 @@ describe('FavouriteCity component', () => {
             persist: { hasHydrated: () => false },
         });
 
-        const { getByTestId } = render(<FavoriteCity />);
-        expect(getByTestId('loading-icon')).toBeInTheDocument();
+        render(<FavoriteCity />);
+        expect(screen.getByTestId('loading-icon')).toBeInTheDocument();
     });
 });

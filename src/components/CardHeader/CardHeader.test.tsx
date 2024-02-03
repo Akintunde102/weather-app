@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import MockIcon from "@/images/icons/big-temperature.svg";
 import CardHeader from './CardHeader';
 
@@ -7,38 +7,39 @@ describe('CardHeader component', () => {
     const mockIcon = MockIcon
 
     test('renders correctly with required props', () => {
-        const { getByAltText, getByText } = render(
+        render(
             <CardHeader icon={mockIcon} title="Test Title" />
         );
-        const iconImage = getByAltText('icon');
+
+        const iconImage = screen.getByAltText('icon');
         expect(iconImage).toBeInTheDocument();
 
-        const titleElement = getByText('Test Title');
+        const titleElement = screen.getByText('Test Title');
         expect(titleElement).toBeInTheDocument();
     });
 
     test('renders correctly with optional rightItem prop', () => {
         const mockRightItem = <button>Right Item</button>;
-        const { getByText } = render(
+        render(
             <CardHeader icon={mockIcon} title="Test Title" rightItem={mockRightItem} />
         );
-        const rightItemButton = getByText('Right Item');
+        const rightItemButton = screen.getByText('Right Item');
         expect(rightItemButton).toBeInTheDocument();
     });
 
     test('renders correctly with divider when withDivider is true', () => {
-        const { container } = render(
+        render(
             <CardHeader icon={mockIcon} title="Test Title" withDivider={true} />
         );
-        const dividerElement = container.querySelector('.divider');
+        const dividerElement = screen.getByTestId('divider');
         expect(dividerElement).toBeInTheDocument();
     });
 
     test('does not render divider when withDivider is false', () => {
-        const { container } = render(
+        render(
             <CardHeader icon={mockIcon} title="Test Title" withDivider={false} />
         );
-        const dividerElement = container.querySelector('.divider');
+        const dividerElement = screen.getByTestId('divider');
         expect(dividerElement).not.toBeInTheDocument();
     });
 });

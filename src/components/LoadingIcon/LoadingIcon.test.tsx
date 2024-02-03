@@ -1,12 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import LoadingIcon from './LoadingIcon';
 
 describe('LoadingIcon component', () => {
     it('renders with default props', () => {
-        const { getByTestId } = render(<LoadingIcon />);
+        render(<LoadingIcon />);
 
-        const loadingIcon = getByTestId('loading-icon');
+        const loadingIcon = screen.getByTestId('loading-icon');
         expect(loadingIcon).toBeInTheDocument();
 
         const loader = loadingIcon.querySelector('.loader');
@@ -15,9 +15,10 @@ describe('LoadingIcon component', () => {
     });
 
     it('renders with custom width and height props', () => {
-        const { getByTestId } = render(<LoadingIcon width="80px" height="80px" />);
+        render(<LoadingIcon width="80px" height="80px" />);
 
-        const loadingIcon = getByTestId('loading-icon');
+
+        const loadingIcon = screen.getByTestId('loading-icon');
         expect(loadingIcon).toBeInTheDocument();
 
         const loader = loadingIcon.querySelector('.loader');
