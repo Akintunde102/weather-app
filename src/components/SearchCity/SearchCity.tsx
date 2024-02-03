@@ -2,12 +2,12 @@ import { useState } from "react";
 import { debounce } from "lodash";
 import Link from "next/link";
 import { ChangeEvent } from "react";
-import { CityDetails, searchForCity } from "@/utils/requests/weatherstack";
+import { CitySuggestion, searchForCity } from "@/utils/requests/weatherstack";
 import styles from "./component.module.scss";
 
 export default function SearchCity() {
     const [note, setNote] = useState<string>("");
-    const [suggestions, setSuggestions] = useState<CityDetails[]>([]);
+    const [suggestions, setSuggestions] = useState<CitySuggestion[]>([]);
 
     const debouncedSearch = debounce(async (value: string) => {
         if (value.length >= 2) {

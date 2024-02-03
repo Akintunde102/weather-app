@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import SearchCity from './SearchCity';
-import { getCitySuggestions } from '@/utils/requests/geonames';
 import '@testing-library/jest-dom'
+import { searchForCity } from '@/utils/requests/weatherstack';
 
-jest.mock('@/utils/requests/geonames', () => ({
-    getCitySuggestions: jest.fn(() => []),
+jest.mock('@/utils/requests/weatherstack', () => ({
+    searchForCity: jest.fn(() => []),
 }));
 
 describe('SearchCity component', () => {
@@ -24,8 +24,8 @@ describe('SearchCity component', () => {
         fireEvent.change(input, { target: { value: 'New York' } });
 
         await waitFor(() => {
-            expect(getCitySuggestions).toHaveBeenCalledTimes(1);
-            expect(getCitySuggestions).toHaveBeenCalledWith('New York');
+            expect(searchForCity).toHaveBeenCalledTimes(1);
+            expect(searchForCity).toHaveBeenCalledWith('New York');
         });
     });
 
@@ -34,7 +34,7 @@ describe('SearchCity component', () => {
             { fullName: 'New York, USA', coordinates: '40.7128,-74.0060' },
             { fullName: 'Los Angeles, USA', coordinates: '34.0522,-118.2437' },
         ];
-        (getCitySuggestions as any).mockResolvedValueOnce(mockSuggestions);
+        (searchForCity as any).mockResolvedValueOnce(mockSuggestions);
 
         render(<SearchCity />);
         const { getByPlaceholderText, getByText } = screen;
