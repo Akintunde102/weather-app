@@ -21,8 +21,8 @@ https://sage-pika-1c42ea.netlify.app
 
 ### ScreenShots
 
-#### Details Page
-![Details Page](https://res.cloudinary.com/dsph6hnfu/image/upload/v1706984755/zar3knw5fsdpxvy3qn2f.png)
+<!-- #### Details Page
+![Details Page](https://res.cloudinary.com/dsph6hnfu/image/upload/v1706984755/zar3knw5fsdpxvy3qn2f.png) -->
 
 #### Mobile pages
 ![Mobile Page 1](https://res.cloudinary.com/dsph6hnfu/image/upload/v1706984753/byalfmooeapbcs7sh5aj.png)
