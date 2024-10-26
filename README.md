@@ -1,20 +1,23 @@
 # Weather APP
 
 ## Requirements
-Node Version: 18 and above
+- Node Version: 18 and above
+- WEATHER_STACK API KEY from https://weatherstack.com/
 
 ## Installation
-Run `npm install`
+- Run `npm install`
+- Update the env.local with your own api keys. Only `NEXT_PUBLIC_WEATHER_STACK_ACCESS_KEY` needs to be compulsorily updated
 
 ## local Usage
-Run `npm run dev`
+- Run `npm run build && npm run start`
+- Click http://localhost:3000
+Note: Ports may be at higher numbers if something else is running at `3000`
 
 ## Testing
 Run `npm run test`
 
 ### Online URL
 https://sage-pika-1c42ea.netlify.app
-
 
 ### ScreenShots
 
